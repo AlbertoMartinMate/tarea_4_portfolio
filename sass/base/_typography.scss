@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+h1 {
+  font-size: 88px;
+  letter-spacing: -2.5px;
+  line-height: 88px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 36px;
+  letter-spacing: -1.5px;
+  line-height: 56px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #d9d9d9;
+}
+
+p {
+  color: $bone;
+}

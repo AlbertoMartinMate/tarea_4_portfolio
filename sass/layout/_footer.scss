@@ -1,0 +1,41 @@
+
+@use '../abstracts' as *;
+
+.footer {
+  background-color: $grey;
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  @include breakpoint(tablet) {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 36px;
+    flex-direction: row;
+  }
+
+  @include breakpoint(desktop) {
+    padding: 40px 70px 40px 100px;
+  }
+
+  .redes-sociales {
+    display: flex;
+    gap: 32px;
+
+    a {
+      img {
+        &:hover {
+          filter: brightness(0) saturate(100%) invert(57%) sepia(72%) saturate(456%) hue-rotate(115deg) brightness(95%) contrast(87%); // ← tono verde
+        }
+      }
+    }
+
+    @include breakpoint (tablet) {
+      justify-content: space-between;
+      gap: 28px;
+}
+
+  }
+}

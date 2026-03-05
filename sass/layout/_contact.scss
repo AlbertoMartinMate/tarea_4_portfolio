@@ -1,0 +1,175 @@
+@use '../abstracts' as *;
+
+.contact {
+  background-color: $grey;
+  text-align: center;
+  position: relative; //para luego darle absolute al oval
+  padding: 80px 0px 100px 0px;
+
+  @include breakpoint(desktop) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    padding: 80px 20px 80px 100px;
+
+    h2, p { grid-column: 1; }
+    
+    &__form { 
+      grid-column: 2;
+      grid-row: 1 / 4;
+      padding: 0;
+    }
+  }
+
+  &::after { //para el borde del final de seccion
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 38px; 
+    right: 38px; 
+    height: 1px;
+    background-color: $bone;
+
+    @include breakpoint(desktop) {
+      left: 100px;
+      right: 70px;
+    }
+  }
+
+
+
+  h2 {
+    font-size: 54px;
+    @include breakpoint (tablet) {
+      font-size: 74px;
+    }
+
+    @include breakpoint(desktop) {
+      font-size: 86px;
+      font-weight: 700;
+    }
+
+  }
+
+  p {
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: $bone;
+    padding: 20px;
+
+    @include breakpoint (tablet) {
+      padding: 30px 140px;
+      font-size: 20px;
+    }
+
+    @include breakpoint(desktop) {
+      padding: 30px 0;
+      font-size: 19px;
+      max-width: 90%;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 18px;
+
+    @include breakpoint (tablet) {
+      padding: 0 140px;
+    }
+
+    @include breakpoint(desktop) {
+      padding: 0 50px 0 80px;
+    }
+
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $bone;
+    padding: 0 16px 16px 16px;
+
+    input, textarea {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: $bone;
+      font-size: 16px;
+      padding: 8px 30px;
+      letter-spacing: 2px;
+
+      &::placeholder {
+        color: $bone;
+        letter-spacing: 2px;
+      }
+
+      &:focus {
+        border-bottom-color: $turquese; // línea verde al hacer focus
+      }
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: none;
+    }
+
+    &.error {
+      border-bottom-color: red;
+
+      .contact__error {
+        display: block;
+      }
+    }
+  }
+
+  &__error {
+    display: none; // oculto hasta que haya error
+    color: red;
+    font-size: 12px;
+    text-align: right;
+    margin-top: 8px;
+  }
+
+  .btn {
+    align-self: flex-end; // botón a la derecha
+    margin-top: 16px;
+    border: none;
+
+    @include breakpoint (tablet) {
+      font-size: 18px;
+
+      &::after { //sobreeescribo el subrayado
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 170px;
+        height: 3px;
+        background-color: $turquese;
+      }
+    }
+  }
+
+  &__oval {
+    position: absolute;
+    z-index: 0;
+    left: -180px; 
+    bottom: 60px;
+    width: 600px;
+    height: 120px;
+
+    @include breakpoint (tablet) {
+      left: -460px;
+      bottom: 20px;
+      height: 140px;
+    }
+
+    @include breakpoint(desktop) {
+      left: -200px;
+      bottom: 70px;
+
+    }
+  }
+}

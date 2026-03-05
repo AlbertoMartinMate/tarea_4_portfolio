@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+.languages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    padding: 40px 16px;
+    position: relative;
+
+    @include breakpoint (tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: start;
+      text-align: left;
+      padding: 50px 30px;
+      row-gap: 60px;
+
+      h2 {
+        font-size: 44px;
+        padding-bottom: 16px;
+      }
+      
+    }
+
+    @include breakpoint (desktop) {
+      grid-template-columns: 1fr 1fr 1fr;
+      
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 32px;  // margen izquierdo
+      right: 32px; // margen derecho
+      height: 1px;
+      background-color: white;
+
+  }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 32px;
+      right: 32px;
+      height: 1px;
+      background-color: white;
+
+      @include breakpoint (tablet) {
+        display: none;
+      }
+    }
+
+    .languages__oval {
+        position: absolute;
+        right: -70px; 
+        bottom: -60px; 
+        z-index: 0;
+
+        @include breakpoint (tablet) {
+          right: -100px;
+          bottom: -30px;
+        }
+  }
+}

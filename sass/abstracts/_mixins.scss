@@ -1,0 +1,46 @@
+@use 'variables' as *;
+
+@mixin breakpoint($bp) {
+  @if $bp == tablet {
+    @media (min-width: $bp-tablet) {
+      @content;
+    }
+  }
+
+  @if $bp == tablethorizontal {
+    @media (min-width: $bp-tablet-horizontal) {
+      @content;
+    }
+  }
+
+  @if $bp == desktop {
+    @media (min-width: $bp-desktop) {
+      @content;
+    }
+  }
+
+  @if $bp == desktopxl {
+    @media (min-width: $bp-desktop-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin reset_list() {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+@mixin button($bg-color: transparent, $color: #d9d9d9) {
+    display: inline-block;
+    background-color: $bg-color;
+    color: $color;
+    padding: 0; // sin padding, el subrayado lo gestionas con ::after
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+    &:hover {
+      color: $turquese;
+    }
+}

@@ -1,0 +1,12 @@
+
+/*reset / normalización de todos los elementos del html*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
